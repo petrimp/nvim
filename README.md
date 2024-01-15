@@ -8,3 +8,12 @@ Leaving this repo public in case someone in the unforeseeable future might find 
 
 That's all.
 
+---
+
+Telescope requires rirgrep and fd installed for full functionality.
+
+`brew install ripgrep`
+
+`brew install fd`
+
+_(Note to self: perhaps automate the whole shenanigans into a single install script?)_
