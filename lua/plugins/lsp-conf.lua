@@ -1,28 +1,40 @@
-return {
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver" }
-      })
-    end
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconf = require("lspconfig")
-      lspconf.lua_ls.setup({})
-      lspconf.tsserver.setup({})
+-- language servers
 
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-    end
-  }
+return {
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls", -- lua server, mainly for editing this config
+					"tsserver", -- javascript
+				},
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			local lspconf = require("lspconfig")
+			lspconf.lua_ls.setup({
+				capabilities = capabilities,
+			})
+			lspconf.tsserver.setup({
+				capabilities = capabilities,
+			})
+
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
+			vim.keymap.set("n", "gR", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+		end,
+	},
 }
