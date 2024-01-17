@@ -10,7 +10,7 @@ That's all.
 
 ---
 
-Telescope requires rirgrep and fd installed for full functionality.
+Telescope requires `ripgrep` and `fd` installed for full functionality.
 
 `brew install ripgrep`
 
