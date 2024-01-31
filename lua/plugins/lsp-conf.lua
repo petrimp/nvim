@@ -14,7 +14,8 @@ return {
 				ensure_installed = {
 					"lua_ls", -- lua server, mainly for editing this config
 					"tsserver", -- javascript
-				},
+				  "rust_analyzer", -- rust
+        },
 			})
 		end,
 	},
