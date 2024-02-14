@@ -28,7 +28,7 @@ return {
     -- Pin/unpin buffer
     map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
     -- Close buffer
-    map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+    map("n", "<A-w>", "<Cmd>BufferClose<CR>", opts)
     -- Wipeout buffer
     --                 :BufferWipeout
     -- Close commands
