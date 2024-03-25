@@ -14,8 +14,9 @@ return {
 				ensure_installed = {
 					"lua_ls", -- lua server, mainly for editing this config
 					"tsserver", -- javascript
-				  "rust_analyzer", -- rust
-        },
+					"rust_analyzer", -- rust
+					"gopls", -- Go
+				},
 			})
 		end,
 	},
@@ -30,6 +31,14 @@ return {
 			})
 			lspconf.tsserver.setup({
 				capabilities = capabilities,
+			})
+			lspconf.gopls.setup({
+				capabilities = capabilities,
+				settings = {
+					gopls = {
+						completeUnimported = true,
+					},
+				},
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
