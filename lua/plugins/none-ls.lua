@@ -10,6 +10,8 @@ return {
 				null_ls.builtins.formatting.prettier, -- JS prettier
 				null_ls.builtins.diagnostics.eslint_d, -- JS lintter
 			  null_ls.builtins.formatting.rustfmt, -- Rust formatter
+        null_ls.builtins.formatting.gofmt, -- Go formatter
+        null_ls.builtins.formatting.goimports_reviser, -- Go imports formatter
       },
 		})
 
